@@ -27,12 +27,16 @@ let production = () => {
           console.log("the machine has been started");
 
           setTimeout(() => {
-            console.log(`${stocks.holder[0]} ice cream was placed on the cone`);
+            console.log(`ice cream was placed on the ${stocks.holder[0]}`);
 
             setTimeout(() => {
               console.log(
                 `${stocks.toppings[0]} topping was placed on the ice cream`
               );
+
+              setTimeout(() => {
+                console.log("serve ice cream");
+              }, 2000);
             }, 3000);
           }, 2000);
         }, 1000);
@@ -42,3 +46,7 @@ let production = () => {
 };
 
 order(0, production);
+
+// The outcome is that i now understand what callbacks do and how they can be used. This example above would be as we call it a callback hell
+// as it is not very easy on the eye and not clear for yourself nor other developers to read.
+// The solution? Promises.
