@@ -42,11 +42,19 @@ order(() => console.log(`${stocks.Fruits[1]} was selected`), 2000)
   })
   .then(() => {
     return order(
-      () => console.log(`${stocks.toppings[1]} has been added`),
+      () => console.log(`${stocks.toppings[1]} have been added`),
       3000
     );
   })
 
-  .finally(() => {
+  .then(() => {
     return order(() => console.log(`You're icecream is ready. Enjoy!`), 3000);
+  })
+
+  .catch(() => {
+    console.log(`Customer left`);
+  })
+
+  .finally(() => {
+    return order(() => console.log(`Day ended, shop is closed`), 3000);
   });
